@@ -96,7 +96,7 @@ const Register = props => {
             color="secondary"
             component={Link}
             to="/signin"
-            className={classes.submit}
+            className={classes.backToLogin}
           >
             Go back to Login
           </Button>
@@ -135,6 +135,11 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing(3)
+  },
+  backToLogin: {
+    marginTop: theme.spacing(3),
+    color: "white",
+    backgroundColor: theme.palette.text.secondary
   }
 });
 

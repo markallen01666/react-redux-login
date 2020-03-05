@@ -71,10 +71,11 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.primary.main
   },
   submit: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    backgroundColor: theme.palette.text.secondary
   }
 });
 

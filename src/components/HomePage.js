@@ -21,7 +21,7 @@ const HomePage = props => {
           type="submit"
           fullWidth
           variant="contained"
-          color="secondary"
+          color="primary"
           component={Link}
           to="/register"
           className={classes.submit}
@@ -32,7 +32,7 @@ const HomePage = props => {
           type="submit"
           fullWidth
           variant="contained"
-          color="secondary"
+          color="primary"
           component={Link}
           to="/signin"
           className={classes.submit}
@@ -43,7 +43,7 @@ const HomePage = props => {
           type="submit"
           fullWidth
           variant="contained"
-          color="secondary"
+          color="primary"
           component={Link}
           to="/userspace"
           className={classes.submit}
@@ -77,7 +77,7 @@ const styles = theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.primary.main
   },
   submit: {
     marginTop: theme.spacing(3)

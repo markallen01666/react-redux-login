@@ -82,7 +82,7 @@ const SignIn = props => {
             color="secondary"
             component={Link}
             to="/register"
-            className={classes.submit}
+            className={classes.register}
           >
             Register
           </Button>
@@ -123,6 +123,11 @@ const styles = theme => ({
   },
   submit: {
     marginTop: theme.spacing(3)
+  },
+  register: {
+    marginTop: theme.spacing(3),
+    color: "white",
+    backgroundColor: theme.palette.text.secondary
   }
 });
 
