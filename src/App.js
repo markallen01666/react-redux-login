@@ -6,7 +6,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import firebase from "./firebase";
 
 import HomePage from "./components/HomePage";
-import Login from "./components/Login";
+import SignIn from "./components/SignIn";
 import Register from "./components/Register";
 import UserSpace from "./components/UserSpace";
 
@@ -26,7 +26,7 @@ const App = props => {
         <Router>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/signin" component={SignIn} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/userspace" component={UserSpace} />
           </Switch>
@@ -42,7 +42,7 @@ const App = props => {
   } 
 }
 
-// styling
+// Styling
 const loaderStyle = {
   position: "fixed",
   top: 0,
