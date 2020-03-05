@@ -5,12 +5,17 @@ import { Provider } from "react-redux";
 import App from "./App";
 
 const initialState = {
+  firebaseInitialised: false,
   signedIn: false,
   userName: ""
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
+    case "INITIALISED":
+      return Object.assign({}, state, {
+        firebaseInitialised: true
+      });
     case "SIGNIN":
       return Object.assign({}, state, {
         signedIn: true,
