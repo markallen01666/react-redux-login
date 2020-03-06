@@ -13,12 +13,13 @@ import UserSpace from "./components/UserSpace";
 const theme = createMuiTheme();
 
 const App = props => {
-  // update firebase initialisation status in redux store
+  // update firebase initialisation status in redux store on successful connection
   useEffect(() => {
     firebase.isInitialized().then(() => {
       props.dispatch({ type: "INITIALISED" });
     });
   });
+
   if (props.firebaseInitialised !== false) {  // firebase is initialised
     return ( 
       <MuiThemeProvider theme={theme}>

@@ -17,13 +17,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 
 const Register = props => {
-  const { classes } = props;
+  const { classes } = props;    // withStyles styling from 'styles' constant available as props in layout
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  async function onRegister() {
+  async function onRegister() {      // handle attempt to register a new account
     try {
       await firebase.register(name, email, password);
       props.history.replace("/userspace");
@@ -33,7 +33,7 @@ const Register = props => {
   }
 
   return (
-    <main className={classes.main}>
+    <div className={classes.main}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -95,14 +95,14 @@ const Register = props => {
             variant="contained"
             color="secondary"
             component={Link}
-            to="/signin"
+            to="/"
             className={classes.backToLogin}
           >
-            Go back to Login
+            Return to front page
           </Button>
         </form>
       </Paper>
-    </main>
+    </div>
   );
 };
 

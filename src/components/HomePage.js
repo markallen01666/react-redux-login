@@ -6,17 +6,31 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Link } from "react-router-dom";
 
 const HomePage = props => {
-  const { classes } = props;
+  const { classes } = props;    // withStyles styling from 'styles' constant available as props in layout
 
   return (
-    <main className={classes.main}>
+    <div className={classes.main}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
           <VerifiedUserOutlined />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Welcome guest user!
+          Welcome!
         </Typography>
+        <Typography variant="subtitle1" gutterBottom>
+          Please sign-in or register for an account
+        </Typography>
+        <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color="primary"
+          component={Link}
+          to="/signin"
+          className={classes.submit}
+        >
+          Sign In
+        </Button>
         <Button
           type="submit"
           fullWidth
@@ -28,30 +42,8 @@ const HomePage = props => {
         >
           Register
         </Button>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          component={Link}
-          to="/signin"
-          className={classes.submit}
-        >
-          Login
-        </Button>
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color="primary"
-          component={Link}
-          to="/userspace"
-          className={classes.submit}
-        >
-          Dashboard
-        </Button>
       </Paper>
-    </main>
+    </div>
   );
 };
 

@@ -16,14 +16,16 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const SignIn = props => {
-  const { classes } = props;
+  const { classes } = props; // withStyles styling from 'styles' constant available as props in layout
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   async function login() {
+    // handle attempt to login
     try {
       await firebase.login(email, password);
+      props.dispatch({ type: "SIGNIN", payload: { userName: "Jimmy Bloggs" } });
       props.history.replace("/userspace");
     } catch (error) {
       alert(error.message);
@@ -31,7 +33,7 @@ const SignIn = props => {
   }
 
   return (
-    <main className={classes.main}>
+    <div className={classes.main}>
       <Paper className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -69,7 +71,6 @@ const SignIn = props => {
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
             onClick={login}
             className={classes.submit}
           >
@@ -79,18 +80,26 @@ const SignIn = props => {
             type="submit"
             fullWidth
             variant="contained"
-            color="secondary"
             component={Link}
             to="/register"
             className={classes.register}
           >
             Register
           </Button>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            component={Link}
+            to="/"
+            className={classes.return}
+          >
+            Return to front page
+          </Button>
         </form>
       </Paper>
-    </main>
+    </div>
   );
-
 };
 
 // Styling
@@ -122,9 +131,16 @@ const styles = theme => ({
     marginTop: theme.spacing(1)
   },
   submit: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    color: "white",
+    backgroundColor: theme.palette.primary.main
   },
   register: {
+    marginTop: theme.spacing(3),
+    color: "white",
+    backgroundColor: theme.palette.success.main
+  },
+  return: {
     marginTop: theme.spacing(3),
     color: "white",
     backgroundColor: theme.palette.text.secondary
@@ -139,6 +155,4 @@ const mapStateToProps = state => {
   };
 };
 
-
 export default connect(mapStateToProps)(withRouter(withStyles(styles)(SignIn)));
-
