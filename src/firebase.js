@@ -3,14 +3,14 @@ import "firebase/auth";
 import "firebase/firebase-firestore";
 
 const config = {
-  apiKey: "AIzaSyCzjN5bpPYQ8xe-s7Oz4qH5sdManHhnosY",
-  authDomain: "react-redux-login-8c0b0.firebaseapp.com",
-  databaseURL: "https://react-redux-login-8c0b0.firebaseio.com",
-  projectId: "react-redux-login-8c0b0",
-  storageBucket: "react-redux-login-8c0b0.appspot.com",
-  messagingSenderId: "536563746608",
-  appId: "1:536563746608:web:67e998bbd9f7aabdbf6af5",
-  measurementId: "G-2THBC8V5PH"
+  apiKey: "AIzaSyAHcOrdypfqTMSRCMGOf6va8M8bliCSQqE",
+    authDomain: "react-redux-login-836a1.firebaseapp.com",
+    databaseURL: "https://react-redux-login-836a1.firebaseio.com",
+    projectId: "react-redux-login-836a1",
+    storageBucket: "react-redux-login-836a1.appspot.com",
+    messagingSenderId: "79228523112",
+    appId: "1:79228523112:web:3304688a67a35ff73ee1dd",
+    measurementId: "G-92RPHFZXZC"
 };
 
 class Firebase {
