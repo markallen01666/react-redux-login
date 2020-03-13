@@ -26,6 +26,7 @@ const Register = props => {
   async function onRegister() {      // handle attempt to register a new account
     try {
       await firebase.register(name, email, password);
+      props.dispatch({ type: "SIGNIN", payload: { userName: firebase.getCurrentUsername() } });
       props.history.replace("/userspace");
     } catch (error) {
       alert(error.message);

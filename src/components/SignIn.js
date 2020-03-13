@@ -25,7 +25,7 @@ const SignIn = props => {
     // handle attempt to login
     try {
       await firebase.login(email, password);
-      props.dispatch({ type: "SIGNIN", payload: { userName: "Jimmy Bloggs" } });
+      props.dispatch({ type: "SIGNIN", payload: { userName: firebase.getCurrentUsername() } });
       props.history.replace("/userspace");
     } catch (error) {
       alert(error.message);
