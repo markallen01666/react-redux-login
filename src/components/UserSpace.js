@@ -7,19 +7,107 @@ import { Typography, Paper, Avatar, Button } from "@material-ui/core";
 import VerifiedUserOutlined from "@material-ui/icons/VerifiedUserOutlined";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-const UserSpace = props => {
-  const { classes } = props;      // withStyles styling from 'styles' constant available as props in layout
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend
+} from "recharts";
 
-  if (!firebase.getCurrentUsername()) {     // not logged in
+// Dummy data
+const data = [
+  {
+    name: "Jan",
+    uv: 4000,
+    pv: 2400,
+    amt: 2400
+  },
+  {
+    name: "Feb",
+    uv: 3000,
+    pv: 1398,
+    amt: 2210
+  },
+  {
+    name: "Mar",
+    uv: 2000,
+    pv: 9800,
+    amt: 2290
+  },
+  {
+    name: "Apr",
+    uv: 2780,
+    pv: 3908,
+    amt: 2000
+  },
+  {
+    name: "May",
+    uv: 1890,
+    pv: 4800,
+    amt: 2181
+  },
+  {
+    name: "Jun",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500
+  },
+  {
+    name: "Jul",
+    uv: 2420,
+    pv: 7000,
+    amt: 2560
+  },
+  {
+    name: "Aug",
+    uv: 2530,
+    pv: 6500,
+    amt: 2800
+  },
+  {
+    name: "Sep",
+    uv: 1807,
+    pv: 3100,
+    amt: 2001
+  },
+  {
+    name: "Oct",
+    uv: 2000,
+    pv: 6700,
+    amt: 1900
+  },
+  {
+    name: "Nov",
+    uv: 2390,
+    pv: 3800,
+    amt: 2500
+  },
+  {
+    name: "Dec",
+    uv: 3490,
+    pv: 4300,
+    amt: 2100
+  }
+];
+
+const UserSpace = props => {
+  const { classes } = props; // withStyles styling from 'styles' constant available as props in layout
+
+  if (!firebase.getCurrentUsername()) {
+    // not logged in
     alert("Please sign-in first");
-    props.history.replace("/signin");       // redirect to SignIn
+    props.history.replace("/signin"); // redirect to SignIn
     return null;
   }
 
-  async function logout() {     // logout from account
+  async function logout() {
+    // logout from account
     props.dispatch({ type: "SIGNOUT" });
     await firebase.logout();
-    props.history.push("/");    // redirect to HomePage
+    props.history.push("/"); // redirect to HomePage
   }
 
   return (
@@ -32,8 +120,25 @@ const UserSpace = props => {
           Hello {props.userName}
         </Typography>
         <Typography variant="subtitle1" gutterBottom>
-          This is the dashboard
+          This is your dashboard
         </Typography>
+        <LineChart
+          width={300}
+          height={200}
+          data={data}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" />
+          <Tooltip />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
         <Button
           type="submit"
           fullWidth
@@ -92,4 +197,6 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps)(withRouter(withStyles(styles)(UserSpace)));
+export default connect(mapStateToProps)(
+  withRouter(withStyles(styles)(UserSpace))
+);

@@ -1,5 +1,4 @@
 ## React/Redux login app
--- WORK IN PROGRESS --
 Basic functioning web app (feel free to play with registering/login/logout): https://react-redux-login-836a1.firebaseapp.com/
 
 Test app for login components built using React and Hooks.
